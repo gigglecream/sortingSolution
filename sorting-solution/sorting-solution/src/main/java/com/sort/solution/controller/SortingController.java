@@ -19,7 +19,6 @@ public class SortingController {
     private SortingService sortingService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    @ResponseBody
     public SortEntity sort(@RequestBody Double[] numbers){
         Double[] numbersWithoutNulls = new Double[numbers.length];
         int j=-0;
@@ -35,13 +34,11 @@ public class SortingController {
     }
 
     @RequestMapping(value = "/fetchAll", method = RequestMethod.GET)
-    @ResponseBody
     public List<SortEntity> fetchAll() {
         return sortingService.fetchAllSortEntities();
     }
 
     @RequestMapping(value = "/clearAll", method = RequestMethod.DELETE)
-    @ResponseBody
     public void clearAll() {
         sortingService.clearAllSortEntities();
     }
