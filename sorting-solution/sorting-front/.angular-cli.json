@@ -7,7 +7,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-solution/src/main/resources/static",
+      "outDir": "../sorting-solution/src/main/resources/static",
       "assets": [
         "assets",
         "favicon.ico"

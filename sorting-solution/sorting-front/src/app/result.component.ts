@@ -14,7 +14,13 @@ export class ResultComponent {
 
   inputArray: string;
   results: Result[];
-  constructor(private appService: AppService) {}
+  errorMessage: string;
+  inputTitle: string = 'Enter an array of doubles, separated by commas';
+  constructor(private appService: AppService) {
+
+  }
+
+
 
   getResults() {
     this.appService.getResults()
@@ -32,10 +38,10 @@ export class ResultComponent {
   }
 
   addSort() {
-/*    console.log(this.inputArray);
-    console.log(JSON.parse(this.inputArray));*/
     this.appService.addSort('[' + this.inputArray + ']')
-      .subscribe((data) => this.inputArray);
+      .subscribe((data) => this.inputArray,
+      error => this.errorMessage = <any>error + 'Please enter valid data');
+    console.log(this.errorMessage);
     setTimeout(() => this.getResults(), 500);
     this.inputArray = '';
   }

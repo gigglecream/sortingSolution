@@ -1,14 +1,14 @@
 webpackJsonp([1,4],{
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(136);
 
 
 
@@ -17,11 +17,11 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/main.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/main.js.map
 
 /***/ }),
 
-/***/ 132:
+/***/ 133:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45,16 +45,16 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(193),
-        styles: [__webpack_require__(191)]
+        template: __webpack_require__(194),
+        styles: [__webpack_require__(192)]
     })
 ], AppComponent);
 
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/app.component.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/app.component.js.map
 
 /***/ }),
 
-/***/ 133:
+/***/ 134:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62,11 +62,11 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__result_component__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__result_component__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_service__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__ = __webpack_require__(128);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -107,11 +107,11 @@ AppModule = __decorate([
     })
 ], AppModule);
 
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/app.module.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/app.module.js.map
 
 /***/ }),
 
-/***/ 134:
+/***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -135,6 +135,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ResultComponent = (function () {
     function ResultComponent(appService) {
         this.appService = appService;
+        this.inputTitle = 'Enter an array of doubles, separated by commas';
     }
     ResultComponent.prototype.getResults = function () {
         var _this = this;
@@ -153,10 +154,9 @@ var ResultComponent = (function () {
     };
     ResultComponent.prototype.addSort = function () {
         var _this = this;
-        /*    console.log(this.inputArray);
-            console.log(JSON.parse(this.inputArray));*/
         this.appService.addSort('[' + this.inputArray + ']')
-            .subscribe(function (data) { return _this.inputArray; });
+            .subscribe(function (data) { return _this.inputArray; }, function (error) { return _this.errorMessage = error + 'Please enter valid data'; });
+        console.log(this.errorMessage);
         setTimeout(function () { return _this.getResults(); }, 500);
         this.inputArray = '';
     };
@@ -165,17 +165,17 @@ var ResultComponent = (function () {
 ResultComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-result',
-        template: __webpack_require__(194)
+        template: __webpack_require__(195)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_service__["a" /* AppService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_service__["a" /* AppService */]) === "function" && _a || Object])
 ], ResultComponent);
 
 var _a;
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/result.component.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/result.component.js.map
 
 /***/ }),
 
-/***/ 135:
+/***/ 136:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,11 +188,11 @@ var _a;
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/environment.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/environment.js.map
 
 /***/ }),
 
-/***/ 191:
+/***/ 192:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(32)();
@@ -210,24 +210,24 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, exports) {
 
 module.exports = "<section>\n  <md-toolbar color=\"primary\" class=\"mat-elevation-z6\" (click)=\"reload()\">\n    <strong>Sorting Tool</strong>\n  </md-toolbar>\n</section>\n<br/><br/>\n<app-result align=\"center\"></app-result>\n"
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, exports) {
 
-module.exports = "<section>\r\n  <md-input-container>\r\n    <label for=\"inputArray\">Enter an array of doubles, separated by commas</label><br/>\r\n    <input (keyup.enter)=\"addSort()\" class=\"form-input\" mdInput id=\"inputArray\" type=\"text\" pattern=\"/^(-?(\\d+\\.?\\d*),)*(-?(\\d+\\.?\\d*))$/\" [(ngModel)]=\"inputArray\" required/>\r\n  </md-input-container>\r\n</section>\r\n<br/><br/>\r\n\r\n\r\n\r\n<section>\r\n  <button md-raised-button color=\"primary\" (click)=\"getResults()\">Get sorted results</button>\r\n  <button md-raised-button color=\"primary\" (click)=\"clearResults()\">Clear results</button>\r\n  <button md-raised-button color=\"primary\" (click)=\"addSort()\">Sort input data</button>\r\n</section>\r\n<br/><br/>\r\n\r\n<section align=\"center\" width=\"auto\" [hidden]=\"!results\">\r\n  <div>\r\n    <table class=\"table table-hover\">\r\n      <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Sorted Array</th>\r\n        <th>Position change count</th>\r\n        <th>Time Estimate</th>\r\n      </tr>\r\n      <tr  *ngFor=\"let result of results\">\r\n      <th>{{result?.id}}</th>\r\n      <th>{{result?.sortedArray}}</th>\r\n      <th>{{result?.changeCount}}</th>\r\n      <th>{{result?.timeEstimate}}</th>\r\n      </tr>\r\n      </thead>\r\n    </table>\r\n  </div>\r\n</section>\r\n"
+module.exports = "<section>\r\n  <md-input-container>\r\n    <input (keyup.enter)=\"addSort()\" class=\"form-input\" mdInput id=\"inputArray\" type=\"text\" pattern=\"/^(-?(\\d+\\.?\\d*),)*(-?(\\d+\\.?\\d*))$/\" placeholder=\"Raw input\" [(ngModel)]=\"inputArray\" required/>\r\n    <md-hint align=\"end\">{{inputTitle}}</md-hint>\r\n  </md-input-container>\r\n</section>\r\n<br/><br/>\r\n{{errorMessage}}\r\n\r\n\r\n<section>\r\n  <button md-raised-button color=\"primary\" (click)=\"getResults()\">Get sorted results</button>\r\n  <button md-raised-button color=\"primary\" (click)=\"clearResults()\">Clear results</button>\r\n  <button md-raised-button color=\"primary\" (click)=\"addSort()\">Sort input data</button>\r\n</section>\r\n<br/><br/>\r\n\r\n<section align=\"center\" width=\"auto\" [hidden]=\"!results\">\r\n  <div>\r\n    <table class=\"table table-hover\">\r\n      <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Sorted Array</th>\r\n        <th>Position change count</th>\r\n        <th>Time Estimate</th>\r\n      </tr>\r\n      <tr  *ngFor=\"let result of results\">\r\n      <th>{{result?.id}}</th>\r\n      <th>{{result?.sortedArray}}</th>\r\n      <th>{{result?.changeCount}}</th>\r\n      <th>{{result?.timeEstimate}}</th>\r\n      </tr>\r\n      </thead>\r\n    </table>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
 /***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(110);
+module.exports = __webpack_require__(111);
 
 
 /***/ }),
@@ -254,8 +254,10 @@ webpackEmptyContext.id = 70;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_throw__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -266,6 +268,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -290,14 +293,16 @@ var AppService = (function () {
             .map(function (res) {
             res.json();
             return res.json();
-        });
+        })
+            .catch(this.handleError);
     };
     AppService.prototype.addSort = function (inputArray) {
         console.log(inputArray);
         console.log(JSON.parse(inputArray));
         return this.http
             .post(this.constUrl + '/create', JSON.parse(inputArray))
-            .map(function (res) { return res.json(); });
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
     };
     AppService.prototype.handleError = function (error) {
         var errorMessage;
@@ -309,7 +314,7 @@ var AppService = (function () {
         else {
             errorMessage = error.message ? error.message : error.toString();
         }
-        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errorMessage);
+        return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].throw(errorMessage);
     };
     return AppService;
 }());
@@ -319,7 +324,7 @@ AppService = __decorate([
 ], AppService);
 
 var _a;
-//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/traning/sorting-solution/sorting-front/src/app.service.js.map
+//# sourceMappingURL=C:/Users/jurijs.eizvertins/Documents/git/sortingSolution/sorting-solution/sorting-front/src/app.service.js.map
 
 /***/ })
 

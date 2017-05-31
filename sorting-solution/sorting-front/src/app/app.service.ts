@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/throw';
 import {Result} from './result.component';
 import {Observable} from 'rxjs/Observable';
 
@@ -29,7 +30,8 @@ export class AppService {
       .map(res => {
         res.json();
         return res.json();
-      });
+      })
+      .catch(this.handleError);
   }
 
   addSort(inputArray: string): Observable<Result> {
@@ -37,7 +39,8 @@ export class AppService {
     console.log(JSON.parse(inputArray));
     return this.http
       .post(this.constUrl + '/create', JSON.parse(inputArray))
-      .map(res => res.json());
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   private handleError(error) {
