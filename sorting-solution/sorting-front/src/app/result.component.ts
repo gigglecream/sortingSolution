@@ -15,7 +15,7 @@ export class ResultComponent {
   inputArray: string;
   results: Result[];
   errorMessage: string;
-  inputTitle: string = 'Enter an array of doubles, separated by commas';
+  inputTitle = 'Enter an array of doubles, separated by commas';
   constructor(private appService: AppService) {
 
   }
